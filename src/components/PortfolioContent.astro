@@ -33,10 +33,13 @@ const otherLangPath = lang === 'es' ? '/en' : '/';
 const AVATAR_SRC = '/avatar.png';
 
 // Única fuente de verdad para enlaces de contacto. Repo: gabito-personal.
+// CV: colocar cv-es.pdf y cv-en.pdf en public/
 const CONTACT_LINKS = {
   email: 'mailto:gabriel.r.poza@gmail.com',
   github: 'https://github.com/gabriel-romero-poza',
   linkedin: 'https://www.linkedin.com/in/gabrielromero-dev',
+  cv_es: '/cv-es.pdf',
+  cv_en: '/cv-en.pdf',
 };
 
 // Proyecto Escolaris: mapeo explícito para cumplir ProjectData (sin claves sobrantes de i18n).
@@ -84,7 +87,7 @@ const escolarisProject: ProjectData = {
 <Contact
   title={t.contact.title}
   subtitle={t.contact.subtitle}
-  labels={{ email: t.contact.email, github: t.contact.github, linkedin: t.contact.linkedin }}
+  labels={{ email: t.contact.email, github: t.contact.github, linkedin: t.contact.linkedin, cv_es: t.contact.cv_es, cv_en: t.contact.cv_en }}
   links={CONTACT_LINKS}
 />
 

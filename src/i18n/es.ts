@@ -77,6 +77,8 @@ export const es = {
     email: 'Enviar email',
     github: 'GitHub',
     linkedin: 'LinkedIn',
+    cv_es: 'Descargar CV (ES)',
+    cv_en: 'Descargar CV (EN)',
   },
   footer: {
     made: 'Hecho con',
