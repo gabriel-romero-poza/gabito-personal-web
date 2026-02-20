@@ -7,16 +7,22 @@ export const es = {
   },
   hero: {
     greeting: 'Hola, soy',
-    title: 'Desarrollador Full-Stack',
-    subtitle: 'Founder de Escolaris. Construyo software que resuelve problemas reales.',
+    title: 'Desarrollador de Software',
+    subtitle: 'Founder de Escolaris. Contruyo cosas.',
     cta_projects: 'Ver proyectos',
     cta_contact: 'Contacto',
   },
   about: {
     title: 'Sobre mí',
-    p1: 'Soy desarrollador backend y full-stack de Bahía Blanca, Argentina. Me especializo en construir APIs robustas, sistemas de autenticación y plataformas SaaS desde cero.',
-    p2: 'Fundé Escolaris, una plataforma de gestión escolar multi-tenant actualmente en beta abierta. Me apasiona resolver problemas reales con código limpio y bien estructurado.',
+    p1: 'Soy un joven desarrollador de software, originario de Bahía Blanca, Argentina. Mi principal experiencia es en el desarrollo de APIs, sistemas de autenticación y plataformas SaaS.',
+    p2: {
+      before: 'Fundé ',
+      linkText: 'Escolaris',
+      after: ', una plataforma de gestión escolar multi-tenant actualmente en beta abierta. Me apasiona resolver problemas reales con código limpio y bien estructurado.',
+      href: 'https://escolaris.com.ar',
+    },
     stack: 'Stack tecnológico',
+    photoPlaceholder: '— foto por agregar —',
   },
   projects: {
     title: 'Proyectos',
@@ -59,7 +65,7 @@ export const es = {
         company: 'E.E.S.T. No. 1',
         date: 'Feb 2018 – Dic 2024',
         location: 'Bahía Blanca, Argentina',
-        desc: 'Título técnico de nivel secundario en desarrollo de software.',
+        desc: 'Título técnico de nivel secundario en programación.',
       },
     ],
     exp_label: 'Experiencia',
@@ -74,6 +80,6 @@ export const es = {
   },
   footer: {
     made: 'Hecho con',
-    in: 'desde Argentina',
+    in: 'por Gabito',
   }
 };

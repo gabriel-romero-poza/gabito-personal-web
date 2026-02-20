@@ -1,0 +1,91 @@
+---
+/**
+ * Composición principal del portfolio. Responsabilidad única: orquestar datos (i18n, stack)
+ * y componentes de sección. No contiene markup de detalle (SOLID: Single Responsibility).
+ *
+ * - DRY: secciones reutilizan Section, experiencia usa TimelineItem, proyectos usan ProjectCard.
+ * - Datos de contacto en un solo lugar para actualizar URLs reales fácilmente.
+ */
+import { useTranslations, type Lang } from '../i18n/index';
+import type { ProjectData } from '../types/portfolio';
+import Navbar from './Navbar.astro';
+import Hero from './Hero.astro';
+import Section from './Section.astro';
+import About from './About.astro';
+import ProjectCard from './ProjectCard.astro';
+import Experience from './Experience.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+
+interface Props {
+  lang: Lang;
+  t: ReturnType<typeof useTranslations>;
+  stack: string[];
+}
+
+const { lang, t, stack } = Astro.props;
+
+// Selector de idioma: etiqueta y ruta del otro locale (KISS: derivado del estado actual).
+const otherLangLabel = lang === 'es' ? 'EN' : 'ES';
+const otherLangPath = lang === 'es' ? '/en' : '/';
+
+// Foto de perfil en public/ (ruta desde la raíz del sitio).
+const AVATAR_SRC = '/avatar.png';
+
+// Única fuente de verdad para enlaces de contacto. Repo: gabito-personal.
+const CONTACT_LINKS = {
+  email: 'mailto:gabriel.r.poza@gmail.com',
+  github: 'https://github.com/gabriel-romero-poza',
+  linkedin: 'https://www.linkedin.com/in/gabrielromero-dev',
+};
+
+// Proyecto Escolaris: mapeo explícito para cumplir ProjectData (sin claves sobrantes de i18n).
+const escolarisProject: ProjectData = {
+  title: t.projects.escolaris.title,
+  badge: t.projects.escolaris.badge,
+  desc: t.projects.escolaris.desc,
+  tags: t.projects.escolaris.tags,
+  linkText: t.projects.escolaris.link,
+  href: 'https://escolaris.com.ar',
+  browserTitle: 'escolaris.com.ar',
+};
+---
+
+<Navbar
+  nav={t.nav}
+  otherLangLabel={otherLangLabel}
+  otherLangPath={otherLangPath}
+/>
+
+<Hero
+  greeting={t.hero.greeting}
+  title={t.hero.title}
+  subtitle={t.hero.subtitle}
+  cta_projects={t.hero.cta_projects}
+  cta_contact={t.hero.cta_contact}
+/>
+
+<Section id="about" number="01" title={t.about.title}>
+  <About about={t.about} stack={stack} avatarSrc={AVATAR_SRC} />
+</Section>
+
+<Section id="projects" number="02" title={t.projects.title}>
+  <ProjectCard project={escolarisProject} />
+</Section>
+
+<Experience
+  title={t.experience.title}
+  exp_label={t.experience.exp_label}
+  edu_label={t.experience.edu_label}
+  jobs={t.experience.jobs}
+  education={t.experience.education}
+/>
+
+<Contact
+  title={t.contact.title}
+  subtitle={t.contact.subtitle}
+  labels={{ email: t.contact.email, github: t.contact.github, linkedin: t.contact.linkedin }}
+  links={CONTACT_LINKS}
+/>
+
+<Footer made={t.footer.made} in={t.footer.in} />

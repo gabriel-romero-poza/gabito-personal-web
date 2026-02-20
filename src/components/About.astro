@@ -1,0 +1,61 @@
+---
+/**
+ * Bloque "Sobre mí": texto, enlace destacado, placeholder de foto y lista de stack.
+ * Recibe el slice de traducciones about y el array stack (inyectado desde la página).
+ */
+export interface Props {
+  about: {
+    title: string;
+    p1: string;
+    p2: { before: string; linkText: string; after: string; href: string };
+    stack: string;
+    photoPlaceholder: string;
+  };
+  stack: string[];
+  /** Ruta a la foto (ej. /avatar.jpg). Si no se pasa, se muestra el placeholder. */
+  avatarSrc?: string;
+}
+const { about, stack, avatarSrc } = Astro.props;
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+  <div class="space-y-4 text-muted leading-relaxed">
+    <p>{about.p1}</p>
+    <p>
+      {about.p2.before}
+      <a href={about.p2.href} target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">{about.p2.linkText}</a>
+      {about.p2.after}
+    </p>
+  </div>
+  <div class="flex flex-col items-center gap-6">
+    <div class="w-40 h-40 rounded-full border-2 border-border bg-surface flex items-center justify-center overflow-hidden glow">
+      {avatarSrc ? (
+        <img
+          src={avatarSrc}
+          alt=""
+          class="w-full h-full object-cover"
+          width="160"
+          height="160"
+        />
+      ) : (
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5" aria-hidden="true">
+          <circle cx="12" cy="8" r="4" /><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+        </svg>
+      )}
+    </div>
+    {!avatarSrc && <p class="text-xs font-mono text-subtle text-center">{about.photoPlaceholder}</p>}
+  </div>
+</div>
+
+<div class="mt-14">
+  <p class="font-mono text-xs text-muted uppercase tracking-widest mb-4">{about.stack}</p>
+  <div class="rounded-lg border border-border bg-surface/50 px-5 py-4">
+    <ul class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-2.5 list-none m-0 p-0">
+      {stack.map((tech) => (
+        <li class="flex items-center gap-2 text-sm text-muted font-mono before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-accent/60 before:shrink-0 before:block">
+          {tech}
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>

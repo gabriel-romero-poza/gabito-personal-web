@@ -1,1 +1,17 @@
+# Dependencies
 node_modules
+
+# Build
+dist
+.astro
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.log
+*.local

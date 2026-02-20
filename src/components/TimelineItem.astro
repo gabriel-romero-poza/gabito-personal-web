@@ -1,0 +1,25 @@
+---
+/**
+ * Un ítem de timeline (trabajo o educación). Misma estructura para ambos (DRY).
+ * El tipo TimelineEntry está definido en types/portfolio.ts.
+ */
+import type { TimelineEntry } from '../types/portfolio';
+
+export interface Props {
+  item: TimelineEntry;
+}
+const { item } = Astro.props;
+---
+
+<div class="flex gap-4">
+  <div class="flex flex-col items-center">
+    <div class="timeline-dot"></div>
+    <div class="w-px flex-1 bg-border mt-2"></div>
+  </div>
+  <div class="pb-4">
+    <h4 class="font-semibold text-white text-sm">{item.role}</h4>
+    <p class="font-mono text-accent text-xs mt-0.5">{item.company}</p>
+    <p class="text-muted text-xs mt-1">{item.date} · {item.location}</p>
+    {item.desc && <p class="text-muted text-xs mt-2 leading-relaxed">{item.desc}</p>}
+  </div>
+</div>

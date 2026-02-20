@@ -1,0 +1,20 @@
+---
+/**
+ * Envuelve una sección con número, título y contenedor consistente.
+ * DRY: evita repetir el patrón "01 / 02 / 03" y estilos de sección.
+ */
+export interface Props {
+  id: string;
+  number: string;
+  title: string;
+}
+const { id, number, title } = Astro.props;
+---
+
+<section id={id} class="py-24 border-t border-border">
+  <div class="max-w-4xl mx-auto px-6">
+    <p class="font-mono text-accent text-xs tracking-widest uppercase mb-2">{number}</p>
+    <h2 class="text-2xl sm:text-3xl font-semibold mb-10">{title}</h2>
+    <slot />
+  </div>
+</section>

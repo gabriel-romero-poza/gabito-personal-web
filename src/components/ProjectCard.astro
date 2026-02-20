@@ -1,0 +1,39 @@
+---
+/**
+ * Tarjeta de un proyecto: mockup del navegador + título, badge, descripción, tags y enlace.
+ * Abierto a extensión: acepta ProjectData; añadir más proyectos no requiere cambiar este componente (Open/Closed).
+ */
+import type { ProjectData } from '../types/portfolio';
+import BrowserMockup from './BrowserMockup.astro';
+
+export interface Props {
+  project: ProjectData;
+}
+const { project } = Astro.props;
+const browserTitle = project.browserTitle ?? new URL(project.href).host;
+---
+
+<div class="rounded-xl border border-border bg-surface overflow-hidden hover:border-accent/40 transition-colors group glow">
+  <BrowserMockup title={browserTitle} />
+  <div class="p-6">
+    <div class="flex items-start justify-between mb-3">
+      <div>
+        <h3 class="text-lg sm:text-xl font-semibold text-white">{project.title}</h3>
+        <span class="font-mono text-xs text-accent">{project.badge}</span>
+      </div>
+      <a
+        href={project.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-1.5 text-xs font-mono text-muted hover:text-accent transition-colors border border-border hover:border-accent/40 px-3 py-1.5 rounded"
+      >
+        {project.linkText}
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10" /></svg>
+      </a>
+    </div>
+    <p class="text-muted text-sm leading-relaxed mb-4">{project.desc}</p>
+    <div class="flex flex-wrap gap-2">
+      {project.tags.map((tag) => <span class="tag">{tag}</span>)}
+    </div>
+  </div>
+</div>

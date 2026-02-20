@@ -1,8 +1,12 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  integrations: [tailwind()],
+  // Cambiá por tu dominio real (sin barra final). Usado en sitemap, robots.txt y canonical.
+  site: 'https://tu-dominio.com',
+  vite: {
+    plugins: [tailwindcss()],
+  },
   i18n: {
     defaultLocale: 'es',
     locales: ['es', 'en'],

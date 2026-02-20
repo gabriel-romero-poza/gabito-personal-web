@@ -6,17 +6,23 @@ export const en = {
     contact: 'Contact',
   },
   hero: {
-    greeting: 'Hi, I\'m',
-    title: 'Full-Stack Developer',
-    subtitle: 'Founder of Escolaris. I build software that solves real problems.',
+    greeting: "Hi, I'm",
+    title: 'Software Developer',
+    subtitle: 'Founder of Escolaris. I build things.',
     cta_projects: 'View projects',
     cta_contact: 'Contact',
   },
   about: {
     title: 'About me',
-    p1: 'I\'m a backend and full-stack developer from Bahía Blanca, Argentina. I specialize in building robust APIs, authentication systems, and SaaS platforms from scratch.',
-    p2: 'I founded Escolaris, a multi-tenant school management platform currently in open beta. I\'m passionate about solving real-world problems with clean, well-structured code.',
+    p1: "I'm a young software developer from Bahía Blanca, Argentina. My main experience is in API development, authentication systems, and SaaS platforms.",
+    p2: {
+      before: 'I founded ',
+      linkText: 'Escolaris',
+      after: ', a multi-tenant school management platform currently in open beta. I love solving real problems with clean, well-structured code.',
+      href: 'https://escolaris.com.ar',
+    },
     stack: 'Tech stack',
+    photoPlaceholder: '— photo to be added —',
   },
   projects: {
     title: 'Projects',
@@ -36,7 +42,7 @@ export const en = {
         company: 'Coding Giants',
         date: 'Dec 2024 – Apr 2025',
         location: 'Spain · Remote',
-        desc: 'Programming lessons for students aged 8–14. Variables, control flow, functions, and OOP basics.',
+        desc: 'Programming lessons for students aged 8–14. Variables, control flow, functions, and OOP.',
       },
       {
         role: 'Programming Intern',
@@ -59,7 +65,7 @@ export const en = {
         company: 'E.E.S.T. No. 1',
         date: 'Feb 2018 – Dec 2024',
         location: 'Bahía Blanca, Argentina',
-        desc: 'Technical high school degree in software development.',
+        desc: 'Technical high school degree in programming.',
       },
     ],
     exp_label: 'Experience',
@@ -67,13 +73,13 @@ export const en = {
   },
   contact: {
     title: 'Contact',
-    subtitle: 'Have a project in mind or want to chat? Reach out.',
+    subtitle: 'Have a project in mind or want to chat? Drop me a line.',
     email: 'Send email',
     github: 'GitHub',
     linkedin: 'LinkedIn',
   },
   footer: {
     made: 'Made with',
-    in: 'from Argentina',
-  }
+    in: 'by Gabito',
+  },
 };

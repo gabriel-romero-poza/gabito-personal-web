@@ -1,0 +1,21 @@
+---
+/**
+ * Pie de página: mensaje "Hecho con ♥" y copyright.
+ * Textos traducidos; el nombre y año pueden venir de props si se desea parametrizar.
+ */
+export interface Props {
+  made: string;
+  in: string;
+  copyright?: string;
+}
+const { made, in: madeIn, copyright = 'Gabriel Romero Poza © 2026' } = Astro.props;
+---
+
+<footer class="border-t border-border py-8">
+  <div class="max-w-4xl mx-auto px-6 flex justify-between items-center">
+    <p class="font-mono text-xs text-subtle">
+      {made} <span class="text-accent" aria-hidden="true">♥</span> {madeIn}
+    </p>
+    <p class="font-mono text-xs text-subtle">{copyright}</p>
+  </div>
+</footer>

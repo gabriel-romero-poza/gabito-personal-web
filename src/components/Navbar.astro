@@ -1,0 +1,81 @@
+---
+/**
+ * Barra de navegación fija: enlaces de ancla + selector de idioma.
+ * En móvil: menú hamburguesa que despliega los enlaces.
+ */
+export interface Props {
+  nav: { about: string; projects: string; experience: string; contact: string };
+  otherLangLabel: string;
+  otherLangPath: string;
+}
+const { nav, otherLangLabel, otherLangPath } = Astro.props;
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 border-b border-border bg-bg/80 backdrop-blur-sm" aria-label="Navegación principal">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 relative">
+    <div class="flex items-center justify-between h-14">
+      <a href="#hero" class="font-mono text-sm text-white font-medium tracking-tight">
+        Gabriel Romero<span class="text-accent">.</span>dev
+      </a>
+      <button
+        type="button"
+        class="md:hidden p-2 -mr-2 text-muted hover:text-white transition-colors"
+        id="nav-toggle"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label="Abrir menú"
+      >
+        <svg id="nav-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="nav-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <div
+        id="nav-menu"
+        class="hidden md:flex md:items-center md:gap-6 absolute md:relative top-full md:top-0 left-0 right-0 md:left-auto md:right-auto flex flex-col md:flex-row gap-4 md:gap-6 py-4 px-4 md:py-0 md:px-0 border-b md:border-b-0 border-border bg-bg/95 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none"
+      >
+        <a href="#about" class="nav-link py-2 md:py-0">{nav.about}</a>
+        <a href="#projects" class="nav-link py-2 md:py-0">{nav.projects}</a>
+        <a href="#experience" class="nav-link py-2 md:py-0">{nav.experience}</a>
+        <a href="#contact" class="nav-link py-2 md:py-0">{nav.contact}</a>
+        <a
+          href={otherLangPath}
+          class="font-mono text-xs px-2.5 py-1 border border-border rounded text-muted hover:border-accent hover:text-accent transition-colors w-fit"
+          aria-label={`Cambiar a ${otherLangLabel}`}
+        >
+          {otherLangLabel}
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  const iconOpen = document.getElementById('nav-icon-open');
+  const iconClose = document.getElementById('nav-icon-close');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Abrir menú' : 'Cerrar menú');
+    iconOpen?.classList.toggle('hidden', !isOpen);
+    iconClose?.classList.toggle('hidden', isOpen);
+  });
+
+  // Cerrar al hacer clic en un enlace (navegación interna)
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (window.matchMedia('(max-width: 767px)').matches) {
+        menu.classList.add('hidden');
+        toggle?.setAttribute('aria-expanded', 'false');
+        toggle?.setAttribute('aria-label', 'Abrir menú');
+        iconOpen?.classList.remove('hidden');
+        iconClose?.classList.add('hidden');
+      }
+    });
+  });
+</script>

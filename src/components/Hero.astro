@@ -1,0 +1,46 @@
+---
+/**
+ * Bloque de presentación inicial. Solo recibe los textos traducidos.
+ * Las animaciones fade-up dependen de clases definidas en Layout.astro.
+ */
+export interface Props {
+  greeting: string;
+  title: string;
+  subtitle: string;
+  cta_projects: string;
+  cta_contact: string;
+}
+const { greeting, title, subtitle, cta_projects, cta_contact } = Astro.props;
+---
+
+<section id="hero" class="min-h-screen flex items-center grid-bg pt-14">
+  <div class="max-w-4xl mx-auto px-6 py-24">
+    <p class="fade-up fade-up-1 font-mono text-accent text-sm mb-4 tracking-widest uppercase">
+      {greeting}
+    </p>
+    <h1 class="fade-up fade-up-2 text-5xl sm:text-7xl font-semibold text-white leading-none tracking-tight mb-4">
+      Gabriel<br />
+      <span class="text-white/30">Romero Poza</span>
+    </h1>
+    <p class="fade-up fade-up-3 font-mono text-base sm:text-lg text-muted mt-6 mb-3">
+      {title}<span class="cursor text-accent" aria-hidden="true">_</span>
+    </p>
+    <p class="fade-up fade-up-3 text-muted text-sm sm:text-base max-w-md mb-10">
+      {subtitle}
+    </p>
+    <div class="fade-up fade-up-4 flex gap-4 flex-wrap">
+      <a
+        href="#projects"
+        class="btn-primary"
+      >
+        {cta_projects}
+      </a>
+      <a
+        href="#contact"
+        class="btn-secondary"
+      >
+        {cta_contact}
+      </a>
+    </div>
+  </div>
+</section>
