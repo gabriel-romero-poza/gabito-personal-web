@@ -8,7 +8,7 @@ export const es = {
   hero: {
     greeting: 'Hola, soy',
     title: 'Desarrollador de Software',
-    subtitle: 'Founder de Escolaris. Contruyo cosas.',
+    subtitle: 'Founder de Escolaris. Construyo cosas.',
     cta_projects: 'Ver proyectos',
     cta_contact: 'Contacto',
   },
@@ -82,6 +82,6 @@ export const es = {
   },
   footer: {
     made: 'Hecho con',
-    in: 'por Gabito',
+    in: '',
   }
 };

@@ -11,10 +11,11 @@ export interface Props {
 const { made, in: madeIn, copyright = 'Gabriel Romero Poza © 2026' } = Astro.props;
 ---
 
-<footer class="border-t border-border py-8">
-  <div class="max-w-4xl mx-auto px-6 flex justify-between items-center">
+<footer class="border-t border-border py-8 relative">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
+  <div class="max-w-4xl mx-auto px-6 flex justify-between items-center relative z-10">
     <p class="font-mono text-xs text-subtle">
-      {made} <span class="text-accent" aria-hidden="true">♥</span> {madeIn}
+      {made} <span class="text-accent" aria-hidden="true">♥</span>{madeIn && ` ${madeIn}`}
     </p>
     <p class="font-mono text-xs text-subtle">{copyright}</p>
   </div>

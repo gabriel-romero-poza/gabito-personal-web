@@ -13,14 +13,15 @@ export interface Props {
 const { greeting, title, subtitle, cta_projects, cta_contact } = Astro.props;
 ---
 
-<section id="hero" class="min-h-screen flex items-center grid-bg pt-14">
-  <div class="max-w-4xl mx-auto px-6 py-24">
+<section id="hero" class="min-h-screen flex items-center grid-bg pt-14 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-950/5 via-transparent to-transparent pointer-events-none"></div>
+  <div class="max-w-4xl mx-auto px-6 py-24 relative z-10">
     <p class="fade-up fade-up-1 font-mono text-accent text-sm mb-4 tracking-widest uppercase">
       {greeting}
     </p>
     <h1 class="fade-up fade-up-2 text-5xl sm:text-7xl font-semibold text-white leading-none tracking-tight mb-4">
       Gabriel<br />
-      <span class="text-white/30">Romero Poza</span>
+      <span style="color: rgba(37, 99, 235, 0.7);">Romero Poza</span>
     </h1>
     <p class="fade-up fade-up-3 font-mono text-base sm:text-lg text-muted mt-6 mb-3">
       {title}<span class="cursor text-accent" aria-hidden="true">_</span>

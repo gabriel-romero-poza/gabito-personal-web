@@ -6,7 +6,7 @@ export default {
       colors: {
         bg: '#0a0a0a',
         surface: '#111111',
-        border: '#1f1f1f',
+        border: 'rgba(37,99,235,0.15)',
         accent: '#2563eb',
         'accent-hover': '#3b82f6',
         muted: '#6b7280',

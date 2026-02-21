@@ -20,7 +20,8 @@ const { title = 'Gabriel Romero Poza', lang = 'es' } = Astro.props;
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
     <style>
       * { box-sizing: border-box; }
       html {
@@ -50,22 +51,31 @@ const { title = 'Gabriel Romero Poza', lang = 'es' } = Astro.props;
 
       .grid-bg {
         background-image:
-          linear-gradient(rgba(37,99,235,0.04) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(37,99,235,0.04) 1px, transparent 1px);
+          linear-gradient(rgba(37,99,235,0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(37,99,235,0.06) 1px, transparent 1px);
         background-size: 48px 48px;
+        background-color: #0a0a0a;
+        position: relative;
       }
-      .glow { box-shadow: 0 0 60px rgba(37,99,235,0.12); }
+      .grid-bg::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 50% 50%, rgba(37,99,235,0.03) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .glow { box-shadow: 0 0 60px rgba(37,99,235,0.15); }
       .tag {
         font-family: 'JetBrains Mono', monospace;
         font-size: 0.7rem;
         padding: 2px 8px;
         border-radius: 4px;
-        border: 1px solid #1f1f1f;
+        border: 1px solid rgba(37,99,235,0.2);
         color: #9ca3af;
-        background: #111;
-        transition: border-color 0.2s, color 0.2s;
+        background: rgba(37,99,235,0.05);
+        transition: border-color 0.2s, color 0.2s, background 0.2s;
       }
-      .tag:hover { border-color: #2563eb; color: #60a5fa; }
+      .tag:hover { border-color: #2563eb; color: #60a5fa; background: rgba(37,99,235,0.1); }
 
       .nav-link {
         position: relative;
@@ -107,18 +117,21 @@ const { title = 'Gabriel Romero Poza', lang = 'es' } = Astro.props;
       .btn-primary:hover { background: #3b82f6; }
       .btn-secondary {
         padding: 0.625rem 1.25rem;
-        border: 1px solid #1f1f1f;
+        border: 1px solid rgba(37,99,235,0.2);
         color: #6b7280;
         font-size: 0.875rem;
         font-weight: 500;
         border-radius: 0.25rem;
-        transition: border-color 0.2s, color 0.2s;
+        background: rgba(37,99,235,0.03);
+        transition: border-color 0.2s, color 0.2s, background 0.2s;
         font-family: 'JetBrains Mono', monospace;
       }
-      .btn-secondary:hover { border-color: #2563eb; color: #fff; }
+      .btn-secondary:hover { border-color: #2563eb; color: #fff; background: rgba(37,99,235,0.1); }
     </style>
   </head>
   <body class="bg-bg text-white font-sans text-base antialiased">
-    <slot />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>

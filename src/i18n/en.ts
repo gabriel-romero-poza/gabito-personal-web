@@ -82,6 +82,6 @@ export const en = {
   },
   footer: {
     made: 'Made with',
-    in: 'by Gabito',
+    in: '',
   },
 };
