@@ -1,6 +1,6 @@
 # Gabriel Romero Poza — Personal Portfolio
 
-**Live site:** `https://gabrielromero.dev`  
+**Live site:** `https://gabito.vercel.app`  
 **Built with:** Astro 5 · Tailwind CSS 4 · TypeScript  
 **Languages:** Spanish (`/`) · English (`/en`)
 
