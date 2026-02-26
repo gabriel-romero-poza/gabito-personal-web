@@ -1,43 +1,68 @@
-# Gabriel Romero Poza — Portfolio
+# Gabriel Romero Poza — Personal Portfolio
 
-Portfolio personal construido con **Astro + Tailwind CSS**.
+**Live site:** `https://gabrielromero.dev`  
+**Built with:** Astro 5 · Tailwind CSS 4 · TypeScript  
+**Languages:** Spanish (`/`) · English (`/en`)
 
-## Setup
+This repository contains the source code for my personal website/portfolio. It’s intentionally **clean, fast, and minimal**.
+
+---
+
+### Why this repo is worth reading
+
+- **Real-world mindset**: clear separation of concerns, typed data models, and predictable structure.
+- **i18n without overengineering**: a tiny, type-safe translations setup (`src/i18n/`).
+- **Reusable UI building blocks**: `Section`, `TimelineItem`, `ProjectCard`, `BrowserMockup`.
+- **Security-aware by default**: documented attack surface for a static site in `docs/SECURITY.md`.
+- **Astro “less JS” approach**: mostly static HTML/CSS with a small script for the mobile navbar.
+
+---
+
+### Project structure (high level)
+
+```txt
+src/
+  components/   # UI sections + reusable pieces
+  data/         # single sources of truth (e.g. tech stack)
+  i18n/         # ES/EN translations + helpers
+  layouts/      # base HTML layout + global styles
+  pages/        # routes: / (ES) and /en (EN) + sitemap/robots
+docs/           # security + best practices notes
+```
+
+---
+
+### Run locally
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
-Abrí `http://localhost:4321` en el browser.
+Open `http://localhost:4321`.
 
-## Deploy en Vercel
+Other useful scripts:
 
-1. Subí el proyecto a GitHub
-2. Entrá a [vercel.com](https://vercel.com) → New Project → importá el repo
-3. Vercel detecta Astro automáticamente → Deploy
-
-¡Listo! Tu sitio queda en `tuusuario.vercel.app` gratis.
-
-## Estructura
-
-```
-src/
-  i18n/
-    es.ts        ← Textos en español
-    en.ts        ← Textos en inglés
-    index.ts     ← Helper de i18n
-  layouts/
-    Layout.astro ← HTML base, fuentes, estilos globales
-  pages/
-    index.astro  ← Página en español (ruta /)
-    en/
-      index.astro ← Página en inglés (ruta /en)
+```bash
+pnpm build
+pnpm preview
+pnpm check
 ```
 
-## Personalización
+---
 
-- **Foto**: Reemplazá el placeholder en `index.astro` y `en/index.astro` con un `<img>` apuntando a tu foto
-- **GitHub/LinkedIn**: Buscá `https://github.com` y `https://linkedin.com` y reemplazá con tus URLs reales
-- **Nuevo proyecto**: Agregá una card nueva en la sección de proyectos copiando la estructura de Escolaris
-- **Textos**: Editá `src/i18n/es.ts` y `src/i18n/en.ts`
+### Notes (CV PDFs)
+
+The website links to two CV PDFs intended to be public:
+
+- `public/CV_Gabriel_Romero_ES.pdf`
+- `public/CV_Gabriel_Romero_EN.pdf`
+
+They may include personal details (email/phone). If you fork this repo, replace them with your own files (or remove phone numbers for privacy).
+
+---
+
+### License
+
+Code is released under the **MIT License**.  
+See the `LICENSE` file for details.
