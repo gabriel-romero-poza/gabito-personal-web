@@ -12,6 +12,7 @@ import Navbar from './Navbar.astro';
 import Hero from './Hero.astro';
 import Section from './Section.astro';
 import About from './About.astro';
+import Services from './Services.astro';
 import ProjectCard from './ProjectCard.astro';
 import Experience from './Experience.astro';
 import Contact from './Contact.astro';
@@ -71,7 +72,17 @@ const mecarisProject: ProjectData = {
   <About about={t.about} stack={stack} avatarSrc={AVATAR_SRC} />
 </Section>
 
-<Section id="projects" number="02" title={t.projects.title}>
+<Section id="services" number="02" title={t.services.title}>
+  <Services
+    intro={t.services.intro}
+    items={t.services.items}
+    faqTitle={t.services.faqTitle}
+    faq={t.services.faq}
+    cta={t.services.cta}
+  />
+</Section>
+
+<Section id="projects" number="03" title={t.projects.title}>
   <ProjectCard project={mecarisProject} />
 </Section>
 

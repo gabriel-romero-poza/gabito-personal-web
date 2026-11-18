@@ -1,6 +1,12 @@
 export const en = {
+  seo: {
+    title: 'Gabriel Romero Poza | Websites & custom software systems',
+    description:
+      'I build websites and custom software systems. Full-Stack Developer based in Bahía Blanca, Argentina — sites, tailored apps, and SaaS. Founder of Mecaris.',
+  },
   nav: {
     about: 'About',
+    services: 'Services',
     projects: 'Projects',
     experience: 'Experience',
     contact: 'Contact',
@@ -8,21 +14,56 @@ export const en = {
   hero: {
     greeting: "Hi, I'm",
     title: 'Full-Stack Developer',
-    subtitle: 'Founder of Mecaris. I build things.',
+    subtitle: 'I build websites and custom systems. Founder of Mecaris.',
     cta_projects: 'View projects',
-    cta_contact: 'Contact',
+    cta_contact: 'Start a project',
   },
   about: {
     title: 'About me',
-    p1: "I'm a Full-Stack Developer and Operations Supervisor from Bahía Blanca, Argentina. I design, build, and deploy multi-tenant SaaS platforms in the TypeScript ecosystem (Node.js, NestJS, Next.js, React) with PostgreSQL.",
+    p1: "I'm a Full-Stack Developer from Bahía Blanca, Argentina. I help people and businesses get a professional website or a custom software system — from design to production — with TypeScript, NestJS, Next.js, and PostgreSQL.",
     p2: {
       before: 'I founded ',
       linkText: 'Mecaris',
-      after: ', a platform for auto repair shop management. I love taking products from concept to production with clean, well-structured code.',
+      after: ', a SaaS platform for auto repair shops. I love taking products from idea to production with clean, well-structured code.',
       href: 'https://mecaris.ar',
     },
     stack: 'Tech stack',
     photoPlaceholder: '— photo to be added —',
+  },
+  services: {
+    title: 'Services',
+    intro:
+      'If you need a website, a custom system, or help digitizing your business, I can take it end to end: scoping, development, launch, and support.',
+    items: [
+      {
+        title: 'Build a website',
+        desc: 'Business sites, landing pages, and portfolios that load fast and look clear. Ideal when you need a professional online presence without the hassle.',
+      },
+      {
+        title: 'Custom software systems',
+        desc: 'Software tailored to how you work: clients, work orders, inventory, users, and reports — built for your process, not a generic spreadsheet.',
+      },
+      {
+        title: 'SaaS platforms & dashboards',
+        desc: 'Multi-user apps with auth, roles, billing, and databases. From prototype to production, with maintainability in mind.',
+      },
+    ],
+    faqTitle: 'FAQ',
+    faq: [
+      {
+        q: 'Do you build websites in Bahía Blanca?',
+        a: 'Yes. I’m based in Bahía Blanca and also work remotely across Argentina. We can meet on a call or in person depending on the project.',
+      },
+      {
+        q: 'What is a custom system?',
+        a: 'Software built for your workflow — not a generic WordPress theme. Useful for shops, offices, or any process you still run on spreadsheets or paper.',
+      },
+      {
+        q: 'How long does a website or custom system take?',
+        a: 'A simple website is often days to a few weeks. Custom systems depend on scope; we define clear timelines together before starting.',
+      },
+    ],
+    cta: 'Tell me your idea',
   },
   projects: {
     title: 'Projects',
@@ -112,7 +153,7 @@ export const en = {
   },
   contact: {
     title: 'Contact',
-    subtitle: 'Have a project in mind or want to chat? Drop me a line.',
+    subtitle: 'Need a website or a custom system? Message me and we’ll figure it out.',
     email: 'Send email',
     github: 'GitHub',
     linkedin: 'LinkedIn',

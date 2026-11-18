@@ -8,6 +8,6 @@ const lang = 'en';
 const t = useTranslations(lang);
 ---
 
-<Layout title="Gabriel Romero Poza" lang={lang}>
+<Layout title={t.seo.title} description={t.seo.description} lang={lang}>
   <PortfolioContent lang={lang} t={t} stack={[...STACK]} />
 </Layout>

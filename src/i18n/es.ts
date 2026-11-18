@@ -1,6 +1,12 @@
 export const es = {
+  seo: {
+    title: 'Gabriel Romero Poza | Páginas web y sistemas a medida en Bahía Blanca',
+    description:
+      'Hago páginas web y sistemas a medida. Desarrollador Full-Stack en Bahía Blanca: sitios, software personalizado y SaaS. Fundador de Mecaris.',
+  },
   nav: {
     about: 'Sobre mí',
+    services: 'Servicios',
     projects: 'Proyectos',
     experience: 'Experiencia',
     contact: 'Contacto',
@@ -8,21 +14,56 @@ export const es = {
   hero: {
     greeting: 'Hola, soy',
     title: 'Desarrollador Full-Stack',
-    subtitle: 'Fundador de Mecaris. Construyo cosas.',
+    subtitle: 'Hago páginas web y sistemas a medida. Fundador de Mecaris.',
     cta_projects: 'Ver proyectos',
-    cta_contact: 'Contacto',
+    cta_contact: 'Pedí tu proyecto',
   },
   about: {
     title: 'Sobre mí',
-    p1: 'Soy desarrollador Full-Stack y supervisor de operaciones, de Bahía Blanca, Argentina. Diseño, construyo y despliego plataformas SaaS multi-tenant en el ecosistema TypeScript (Node.js, NestJS, Next.js, React) con PostgreSQL.',
+    p1: 'Soy desarrollador Full-Stack de Bahía Blanca, Argentina. Ayudo a personas y negocios a tener una página web profesional o un sistema a medida: desde el diseño hasta el despliegue en producción, con TypeScript, NestJS, Next.js y PostgreSQL.',
     p2: {
       before: 'Fundé ',
       linkText: 'Mecaris',
-      after: ', una plataforma para la gestión de talleres mecánicos. Me apasiona llevar productos desde la concepción hasta producción, con código limpio y bien estructurado.',
+      after: ', una plataforma SaaS para talleres mecánicos. Me apasiona llevar productos desde la idea hasta producción, con código limpio y bien estructurado.',
       href: 'https://mecaris.ar',
     },
     stack: 'Stack tecnológico',
     photoPlaceholder: '— foto por agregar —',
+  },
+  services: {
+    title: 'Servicios',
+    intro:
+      'Si buscás alguien para hacer una página web, un sistema a medida o digitalizar tu negocio, puedo ayudarte de punta a punta: definición, desarrollo, puesta online y soporte.',
+    items: [
+      {
+        title: 'Hacer una página web',
+        desc: 'Sitios institucionales, landing pages y portfolios rápidos, claros y listos para publicar. Ideales si necesitás presencia online profesional sin complicaciones.',
+      },
+      {
+        title: 'Sistema a medida',
+        desc: 'Software personalizado para tu operación: gestión de clientes, órdenes, stock, usuarios y reportes. Pensado para cómo trabajás vos, no para forzar una planilla genérica.',
+      },
+      {
+        title: 'Plataformas SaaS y paneles',
+        desc: 'Aplicaciones multi-usuario con autenticación, roles, facturación y base de datos. Del prototipo a producción, con foco en que sea mantenible.',
+      },
+    ],
+    faqTitle: 'Preguntas frecuentes',
+    faq: [
+      {
+        q: '¿Hacés páginas web en Bahía Blanca?',
+        a: 'Sí. Trabajo desde Bahía Blanca y también de forma remota en toda Argentina. Coordinamos por videollamada o presencial según el proyecto.',
+      },
+      {
+        q: '¿Qué es un sistema a medida?',
+        a: 'Es software hecho para tu flujo de trabajo: no es un WordPress genérico. Sirve para talleres, comercios, oficinas o cualquier proceso que hoy manejás con planillas o papel.',
+      },
+      {
+        q: '¿Cuánto tarda hacer una página web o un sistema?',
+        a: 'Una página web simple suele resolverse en días o pocas semanas. Un sistema a medida depende del alcance; lo definimos juntos antes de empezar, con plazos claros.',
+      },
+    ],
+    cta: 'Contame tu idea',
   },
   projects: {
     title: 'Proyectos',
@@ -112,7 +153,7 @@ export const es = {
   },
   contact: {
     title: 'Contacto',
-    subtitle: '¿Tenés un proyecto en mente o querés charlar? Escribime.',
+    subtitle: '¿Necesitás una página web o un sistema a medida? Escribime y lo vemos.',
     email: 'Enviar email',
     github: 'GitHub',
     linkedin: 'LinkedIn',

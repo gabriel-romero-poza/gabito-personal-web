@@ -1,0 +1,52 @@
+---
+/**
+ * Oferta de servicios orientada a búsquedas comunes (páginas web, sistemas a medida).
+ * Layout en lista, sin cards.
+ */
+export interface ServiceItem {
+  title: string;
+  desc: string;
+}
+
+export interface FaqItem {
+  q: string;
+  a: string;
+}
+
+export interface Props {
+  intro: string;
+  items: ServiceItem[];
+  faqTitle: string;
+  faq: FaqItem[];
+  cta: string;
+  ctaHref?: string;
+}
+const { intro, items, faqTitle, faq, cta, ctaHref = '#contact' } = Astro.props;
+---
+
+<div class="space-y-12">
+  <p class="text-muted leading-relaxed max-w-2xl">{intro}</p>
+
+  <ul class="space-y-8 list-none m-0 p-0">
+    {items.map((item) => (
+      <li class="border-t border-border pt-6">
+        <h3 class="text-lg font-semibold text-white">{item.title}</h3>
+        <p class="text-muted text-sm mt-2 leading-relaxed max-w-2xl">{item.desc}</p>
+      </li>
+    ))}
+  </ul>
+
+  <div>
+    <p class="font-mono text-xs text-muted uppercase tracking-widest mb-6">{faqTitle}</p>
+    <dl class="space-y-6">
+      {faq.map((item) => (
+        <div class="border-t border-border pt-5">
+          <dt class="text-sm font-medium text-white">{item.q}</dt>
+          <dd class="text-muted text-sm mt-2 leading-relaxed max-w-2xl m-0">{item.a}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+
+  <a href={ctaHref} class="btn-primary inline-flex">{cta}</a>
+</div>

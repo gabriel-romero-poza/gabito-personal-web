@@ -1,19 +1,111 @@
 ---
 import '../styles/global.css';
+import type { Lang } from '../i18n/index';
 
 interface Props {
-  title?: string;
-  lang?: string;
+  title: string;
+  description: string;
+  lang: Lang;
 }
-const { title = 'Gabriel Romero Poza', lang = 'es' } = Astro.props;
+const { title, description, lang } = Astro.props;
+
+const site = (Astro.site?.origin ?? 'https://gabito.vercel.app').replace(/\/$/, '');
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const canonical = `${site}${pathname === '/' ? '/' : `${pathname}/`}`;
+const alternateEs = `${site}/`;
+const alternateEn = `${site}/en/`;
+const ogImage = `${site}/avatar.png`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${site}/#person`,
+      name: 'Gabriel Emmanuel Romero Poza',
+      url: site,
+      image: ogImage,
+      jobTitle: 'Full-Stack Developer',
+      email: 'mailto:gabriel.r.poza@gmail.com',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Bahía Blanca',
+        addressRegion: 'Buenos Aires',
+        addressCountry: 'AR',
+      },
+      sameAs: [
+        'https://github.com/gabriel-romero-poza',
+        'https://www.linkedin.com/in/gabrielromero-dev',
+        'https://mecaris.ar',
+      ],
+      knowsAbout: [
+        'desarrollo web',
+        'páginas web',
+        'sistemas a medida',
+        'software a medida',
+        'SaaS',
+        'TypeScript',
+        'NestJS',
+        'Next.js',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${site}/#website`,
+      url: site,
+      name: 'Gabriel Romero Poza',
+      description,
+      inLanguage: ['es', 'en'],
+      publisher: { '@id': `${site}/#person` },
+    },
+    {
+      '@type': 'ProfessionalService',
+      '@id': `${site}/#services`,
+      name: lang === 'es' ? 'Desarrollo web y sistemas a medida' : 'Web development and custom software',
+      url: `${site}${lang === 'es' ? '/' : '/en/'}#services`,
+      provider: { '@id': `${site}/#person` },
+      areaServed: [
+        { '@type': 'City', name: 'Bahía Blanca' },
+        { '@type': 'Country', name: 'Argentina' },
+      ],
+      serviceType: [
+        lang === 'es' ? 'Hacer página web' : 'Website development',
+        lang === 'es' ? 'Sistema a medida' : 'Custom software systems',
+        'SaaS',
+      ],
+    },
+  ],
+};
 ---
 <!doctype html>
 <html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Gabriel Romero Poza — Full-Stack Developer & Founder of Mecaris" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Gabriel Romero Poza" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es" href={alternateEs} />
+    <link rel="alternate" hreflang="en" href={alternateEn} />
+    <link rel="alternate" hreflang="x-default" href={alternateEs} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang === 'es' ? 'es_AR' : 'en_US'} />
+    <meta property="og:locale:alternate" content={lang === 'es' ? 'en_US' : 'es_AR'} />
+    <meta property="og:site_name" content="Gabriel Romero Poza" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="Gabriel Romero Poza" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -22,6 +114,7 @@ const { title = 'Gabriel Romero Poza', lang = 'es' } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <style>
       * { box-sizing: border-box; }
       html {
@@ -103,7 +196,6 @@ const { title = 'Gabriel Romero Poza', lang = 'es' } = Astro.props;
         margin-top: 6px;
         box-shadow: 0 0 8px rgba(37,99,235,0.5);
       }
-      /* Botones reutilizables (DRY): mismo aspecto en Hero y Contact */
       .btn-primary {
         padding: 0.625rem 1.25rem;
         background: #2563eb;

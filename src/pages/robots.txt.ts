@@ -4,7 +4,7 @@
 export const prerender = true;
 
 export function GET() {
-  const site = (import.meta.env.SITE || 'https://example.com').replace(/\/$/, '');
+  const site = (import.meta.env.SITE || 'https://gabito.vercel.app').replace(/\/$/, '');
   const body = `User-agent: *
 Allow: /
 

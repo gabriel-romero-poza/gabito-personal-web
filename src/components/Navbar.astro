@@ -4,7 +4,7 @@
  * En móvil: menú hamburguesa que despliega los enlaces.
  */
 export interface Props {
-  nav: { about: string; projects: string; experience: string; contact: string };
+  nav: { about: string; services: string; projects: string; experience: string; contact: string };
   otherLangLabel: string;
   otherLangPath: string;
 }
@@ -38,6 +38,7 @@ const { nav, otherLangLabel, otherLangPath } = Astro.props;
         style="background: rgba(10,10,10,0.98);"
       >
         <a href="#about" class="nav-link py-2 md:py-0">{nav.about}</a>
+        <a href="#services" class="nav-link py-2 md:py-0">{nav.services}</a>
         <a href="#projects" class="nav-link py-2 md:py-0">{nav.projects}</a>
         <a href="#experience" class="nav-link py-2 md:py-0">{nav.experience}</a>
         <a href="#contact" class="nav-link py-2 md:py-0">{nav.contact}</a>

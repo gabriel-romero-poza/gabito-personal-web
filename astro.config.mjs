@@ -2,8 +2,8 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  // Cambiá por tu dominio real (sin barra final). Usado en sitemap, robots.txt y canonical.
-  site: 'https://tu-dominio.com',
+  // Dominio canónico (sin barra final). Usado en sitemap, robots.txt, OG y canonical.
+  site: 'https://gabito.vercel.app',
   vite: {
     plugins: [tailwindcss()],
   },
