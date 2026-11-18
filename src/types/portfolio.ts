@@ -25,4 +25,7 @@ export interface ProjectData {
   href: string;
   /** Texto mostrado en la barra del mockup del navegador. */
   browserTitle?: string;
+  /** Captura real del producto dentro del mockup. */
+  imageSrc?: string;
+  imageAlt?: string;
 }

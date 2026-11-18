@@ -1,43 +1,55 @@
 ---
 /**
  * Mockup mínimo de ventana de navegador (barra + área de contenido).
- * Reutilizable para cualquier proyecto; el título viene por props.
+ * Si hay imageSrc, muestra la captura real del producto; si no, un placeholder.
  */
 export interface Props {
   /** Texto en la barra del navegador (p. ej. dominio del proyecto). */
   title: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }
-const { title } = Astro.props;
+const { title, imageSrc, imageAlt = '' } = Astro.props;
 ---
 
-<div class="w-full h-52 bg-gradient-to-br from-[#0d1117] to-[#0f172a] border-b border-border overflow-hidden">
-  <div class="h-8 bg-[#161b22] border-b border-[#1f1f1f] flex items-center px-4 gap-2">
+<div class="w-full h-52 sm:h-64 bg-gradient-to-br from-[#0d1117] to-[#0f172a] border-b border-border overflow-hidden">
+  <div class="h-8 bg-[#161b22] border-b border-[#1f1f1f] flex items-center px-4 gap-2 shrink-0">
     <div class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></div>
     <div class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></div>
     <div class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></div>
     <span class="mx-auto font-mono text-[10px] text-[#6b7280]">{title}</span>
   </div>
-  <div class="p-4 flex gap-3 relative overflow-hidden">
-    <!-- Subtle grid -->
-    <div class="absolute inset-0 opacity-[0.06]" style="background-image: linear-gradient(rgba(37,99,235,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.4) 1px, transparent 1px); background-size: 16px 16px;"></div>
-    <!-- Placeholder card -->
-    <div class="w-24 h-20 bg-gradient-to-br from-surface/70 to-blue-950/20 rounded border border-border/60 flex items-center justify-center relative z-10 shrink-0">
-      <div class="w-8 h-8 rounded bg-accent/20 flex items-center justify-center">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(37,99,235,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-        </svg>
+  {imageSrc ? (
+    <div class="relative h-[calc(100%-2rem)] w-full bg-[#f4f4f5]">
+      <img
+        src={imageSrc}
+        alt={imageAlt}
+        class="absolute inset-0 w-full h-full object-cover object-top"
+        loading="lazy"
+        width="1400"
+        height="567"
+      />
+    </div>
+  ) : (
+    <div class="p-4 flex gap-3 relative overflow-hidden h-[calc(100%-2rem)]">
+      <div class="absolute inset-0 opacity-[0.06]" style="background-image: linear-gradient(rgba(37,99,235,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.4) 1px, transparent 1px); background-size: 16px 16px;"></div>
+      <div class="w-24 h-20 bg-gradient-to-br from-surface/70 to-blue-950/20 rounded border border-border/60 flex items-center justify-center relative z-10 shrink-0">
+        <div class="w-8 h-8 rounded bg-accent/20 flex items-center justify-center">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(37,99,235,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+      </div>
+      <div class="flex-1 space-y-2 relative z-10 min-w-0">
+        <div class="h-3 w-3/4 bg-gradient-to-r from-subtle/50 to-subtle/30 rounded"></div>
+        <div class="h-3 w-full bg-gradient-to-r from-subtle/50 to-subtle/30 rounded"></div>
+        <div class="h-3 w-1/2 bg-gradient-to-r from-accent/30 to-accent/10 rounded"></div>
+        <div class="flex gap-2 mt-3 flex-wrap">
+          <div class="h-2 w-12 bg-accent/20 rounded"></div>
+          <div class="h-2 w-14 bg-subtle/40 rounded"></div>
+          <div class="h-2 w-10 bg-subtle/40 rounded"></div>
+        </div>
       </div>
     </div>
-    <!-- Skeleton lines -->
-    <div class="flex-1 space-y-2 relative z-10 min-w-0">
-      <div class="h-3 w-3/4 bg-gradient-to-r from-subtle/50 to-subtle/30 rounded"></div>
-      <div class="h-3 w-full bg-gradient-to-r from-subtle/50 to-subtle/30 rounded"></div>
-      <div class="h-3 w-1/2 bg-gradient-to-r from-accent/30 to-accent/10 rounded"></div>
-      <div class="flex gap-2 mt-3 flex-wrap">
-        <div class="h-2 w-12 bg-accent/20 rounded"></div>
-        <div class="h-2 w-14 bg-subtle/40 rounded"></div>
-        <div class="h-2 w-10 bg-subtle/40 rounded"></div>
-      </div>
-    </div>
-  </div>
+  )}
 </div>

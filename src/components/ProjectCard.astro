@@ -14,7 +14,7 @@ const browserTitle = project.browserTitle ?? new URL(project.href).host;
 ---
 
 <div class="rounded-xl border border-border bg-gradient-to-br from-surface to-blue-950/10 overflow-hidden hover:border-accent/50 hover:shadow-[0_0_30px_rgba(37,99,235,0.2)] transition-all group glow">
-  <BrowserMockup title={browserTitle} />
+  <BrowserMockup title={browserTitle} imageSrc={project.imageSrc} imageAlt={project.imageAlt} />
   <div class="p-6">
     <div class="flex items-start justify-between mb-3">
       <div>
