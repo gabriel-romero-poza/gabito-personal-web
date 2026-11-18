@@ -14,7 +14,8 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 const canonical = `${site}${pathname === '/' ? '/' : `${pathname}/`}`;
 const alternateEs = `${site}/`;
 const alternateEn = `${site}/en/`;
-const ogImage = `${site}/avatar.png`;
+const ogImage = `${site}/og-image.jpg`;
+const personImage = `${site}/avatar.png`;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -24,7 +25,7 @@ const jsonLd = {
       '@id': `${site}/#person`,
       name: 'Gabriel Emmanuel Romero Poza',
       url: site,
-      image: ogImage,
+      image: personImage,
       jobTitle: 'Full-Stack Developer',
       email: 'mailto:gabriel.r.poza@gmail.com',
       address: {
@@ -99,9 +100,11 @@ const jsonLd = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content="Gabriel Romero Poza" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Gabriel Romero Poza — Full-Stack Developer · Páginas web y sistemas a medida" />
 
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
