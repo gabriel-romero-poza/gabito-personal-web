@@ -21,5 +21,15 @@ const { item } = Astro.props;
     <p class="font-mono text-accent text-xs mt-0.5">{item.company}</p>
     <p class="text-muted text-xs mt-1">{item.date} · {item.location}</p>
     {item.desc && <p class="text-muted text-xs mt-2 leading-relaxed">{item.desc}</p>}
+    {item.bullets && item.bullets.length > 0 && (
+      <ul class="mt-2 space-y-1.5 list-none m-0 p-0">
+        {item.bullets.map((bullet) => (
+          <li class="flex gap-2 text-muted text-xs leading-relaxed">
+            <span class="text-accent flex-shrink-0 mt-0.5" aria-hidden="true">›</span>
+            <span>{bullet}</span>
+          </li>
+        ))}
+      </ul>
+    )}
   </div>
 </div>

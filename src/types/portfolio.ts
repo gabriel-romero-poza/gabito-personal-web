@@ -9,7 +9,10 @@ export interface TimelineEntry {
   company: string;
   date: string;
   location: string;
+  /** Descripción corta en un párrafo (opcional). */
   desc?: string;
+  /** Viñetas del CV cuando el rol tiene varios puntos. */
+  bullets?: string[];
 }
 
 /** Datos de un proyecto para ProjectCard. */

@@ -1,17 +1,19 @@
 /**
  * Stack tecnológico (única fuente de verdad; usado en ES y EN).
+ * Alineado con las skills técnicas del CV.
  */
 export const STACK = [
   'TypeScript',
+  'JavaScript',
   'Node.js',
   'NestJS',
-  'Next.js',
   'React',
+  'Next.js',
   'PostgreSQL',
-  'Drizzle ORM',
-  'JWT',
+  'SQL',
   'REST APIs',
+  'Drizzle ORM',
   'Git',
-  'Vercel',
+  'Docker',
   'Python',
 ] as const;
