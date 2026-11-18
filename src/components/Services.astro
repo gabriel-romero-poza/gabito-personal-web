@@ -36,11 +36,11 @@ const { intro, items, faqTitle, faq, cta, ctaHref = '#contact' } = Astro.props;
     ))}
   </ul>
 
-  <div>
-    <p class="font-mono text-xs text-muted uppercase tracking-widest mb-6">{faqTitle}</p>
+  <div class="border-t border-border pt-12 mt-4">
+    <h3 class="text-lg sm:text-xl font-semibold text-white mb-8">{faqTitle}</h3>
     <dl class="space-y-6">
       {faq.map((item) => (
-        <div class="border-t border-border pt-5">
+        <div class="border-t border-border pt-5 first:border-t-0 first:pt-0">
           <dt class="text-sm font-medium text-white">{item.q}</dt>
           <dd class="text-muted text-sm mt-2 leading-relaxed max-w-2xl m-0">{item.a}</dd>
         </div>
